@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.os.CancellationSignal;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.VisibleForTesting;
-import androidx.core.os.CancellationSignal;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RestrictTo;
+import android.support.annotation.VisibleForTesting;
 
 import java.util.concurrent.Executor;
 
@@ -106,9 +106,9 @@ public class FingerprintHelperFragment extends Fragment {
     // Also created once and retained.
     @VisibleForTesting
     @SuppressWarnings("deprecation")
-    final androidx.core.hardware.fingerprint.FingerprintManagerCompat.AuthenticationCallback
+    final FingerprintManagerCompat.AuthenticationCallback
             mAuthenticationCallback =
-            new androidx.core.hardware.fingerprint.FingerprintManagerCompat
+            new FingerprintManagerCompat
                     .AuthenticationCallback() {
 
                 private void dismissAndForwardResult(final int errMsgId,
@@ -178,8 +178,8 @@ public class FingerprintHelperFragment extends Fragment {
                 }
 
                 @Override
-                public void onAuthenticationSucceeded(final androidx.core.hardware.fingerprint
-                        .FingerprintManagerCompat.AuthenticationResult result) {
+                public void onAuthenticationSucceeded(
+                        final FingerprintManagerCompat.AuthenticationResult result) {
 
                     mMessageRouter.sendMessage(
                             FingerprintDialogFragment.MSG_DISMISS_DIALOG_AUTHENTICATED);
@@ -245,8 +245,8 @@ public class FingerprintHelperFragment extends Fragment {
         if (!mShowing) {
             mCancellationSignal = new CancellationSignal();
             mCanceledFrom = USER_CANCELED_FROM_NONE;
-            androidx.core.hardware.fingerprint.FingerprintManagerCompat fingerprintManagerCompat =
-                    androidx.core.hardware.fingerprint.FingerprintManagerCompat.from(mContext);
+            FingerprintManagerCompat fingerprintManagerCompat =
+                    FingerprintManagerCompat.from(mContext);
             if (handlePreAuthenticationErrors(fingerprintManagerCompat)) {
                 mMessageRouter.sendMessage(FingerprintDialogFragment.MSG_DISMISS_DIALOG_ERROR);
                 cleanup();
@@ -324,7 +324,7 @@ public class FingerprintHelperFragment extends Fragment {
      */
     @SuppressWarnings("deprecation")
     private boolean handlePreAuthenticationErrors(
-            androidx.core.hardware.fingerprint.FingerprintManagerCompat fingerprintManager) {
+            FingerprintManagerCompat fingerprintManager) {
         if (!fingerprintManager.isHardwareDetected()) {
             sendErrorToClient(BiometricPrompt.ERROR_HW_NOT_PRESENT);
             return true;
@@ -370,7 +370,7 @@ public class FingerprintHelperFragment extends Fragment {
 
     @SuppressWarnings("deprecation")
     private static BiometricPrompt.CryptoObject unwrapCryptoObject(
-            androidx.core.hardware.fingerprint.FingerprintManagerCompat.CryptoObject cryptoObject) {
+            FingerprintManagerCompat.CryptoObject cryptoObject) {
         if (cryptoObject == null) {
             return null;
         } else if (cryptoObject.getCipher() != null) {
@@ -385,18 +385,18 @@ public class FingerprintHelperFragment extends Fragment {
     }
 
     @SuppressWarnings("deprecation")
-    private static androidx.core.hardware.fingerprint.FingerprintManagerCompat.CryptoObject
+    private static FingerprintManagerCompat.CryptoObject
             wrapCryptoObject(BiometricPrompt.CryptoObject cryptoObject) {
         if (cryptoObject == null) {
             return null;
         } else if (cryptoObject.getCipher() != null) {
-            return new androidx.core.hardware.fingerprint.FingerprintManagerCompat.CryptoObject(
+            return new FingerprintManagerCompat.CryptoObject(
                     cryptoObject.getCipher());
         } else if (cryptoObject.getSignature() != null) {
-            return new androidx.core.hardware.fingerprint.FingerprintManagerCompat.CryptoObject(
+            return new FingerprintManagerCompat.CryptoObject(
                     cryptoObject.getSignature());
         } else if (cryptoObject.getMac() != null) {
-            return new androidx.core.hardware.fingerprint.FingerprintManagerCompat.CryptoObject(
+            return new FingerprintManagerCompat.CryptoObject(
                     cryptoObject.getMac());
         } else {
             return null;

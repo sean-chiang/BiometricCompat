@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.example.android.biometric;
+package mls.demo.android.support.biometric;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 /**
  * Hosting activity for the BiometricPrompt demo. Shows how a biometric prompt can be launched

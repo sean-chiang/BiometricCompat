@@ -14,17 +14,18 @@
  * limitations under the License.
  */
 
-package com.example.android.biometric;
+package mls.demo.android.support.biometric;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.biometric.BiometricPrompt;
-import androidx.fragment.app.FragmentActivity;
+import android.support.annotation.NonNull;
+
+import mls.android.support.biometric.BiometricPrompt;
 
 /**
- * Implementation of {@link com.example.android.biometric.BiometricPromptDemoController} that
+ * Implementation of {@link BiometricPromptDemoController} that
  * handles launching the biometric prompt from within an activity host.
  */
 class BiometricPromptDemoActivityController extends BiometricPromptDemoController {

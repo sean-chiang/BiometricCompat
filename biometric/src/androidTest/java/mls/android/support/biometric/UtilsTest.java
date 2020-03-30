@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -35,12 +35,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.LargeTest;
-import androidx.test.filters.SdkSuppress;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.test.filters.LargeTest;
+import android.support.test.filters.SdkSuppress;
+import android.support.test.runner.AndroidJUnit4;
+import android.support.v4.app.FragmentActivity;
 
 import org.junit.After;
 import org.junit.Test;

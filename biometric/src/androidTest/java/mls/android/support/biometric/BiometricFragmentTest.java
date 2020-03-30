@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -24,11 +24,10 @@ import static org.mockito.Mockito.verify;
 import android.content.DialogInterface;
 import android.os.Build;
 
-import androidx.annotation.NonNull;
-import androidx.test.annotation.UiThreadTest;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.LargeTest;
-import androidx.test.filters.SdkSuppress;
+import android.support.annotation.NonNull;
+import android.support.test.filters.LargeTest;
+import android.support.test.filters.SdkSuppress;
+import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,7 +54,6 @@ public class BiometricFragmentTest {
     };
 
     @Test
-    @UiThreadTest
     public void testOnAuthenticationSucceeded_TriggersCallbackWithNullCrypto_WhenGivenNullResult() {
         final BiometricFragment biometricFragment = BiometricFragment.newInstance();
         final BiometricPrompt.AuthenticationCallback callback =
@@ -71,7 +69,6 @@ public class BiometricFragmentTest {
     }
 
     @Test
-    @UiThreadTest
     public void testIsDeviceCredentialAllowed_ReturnsFalse_WhenBundleIsNull() {
         final BiometricFragment biometricFragment = BiometricFragment.newInstance();
         biometricFragment.setBundle(null);

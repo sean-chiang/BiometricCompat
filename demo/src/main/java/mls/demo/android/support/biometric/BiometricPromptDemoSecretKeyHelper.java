@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.android.biometric;
+package mls.demo.android.support.biometric;
 
 import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyProperties;
 
-import androidx.annotation.RequiresApi;
+import android.support.annotation.RequiresApi;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -56,7 +56,7 @@ final class BiometricPromptDemoSecretKeyHelper {
 
     /**
      * Generates a key that can only be used if the user is authenticated via secure lock screen or
-     * {@link androidx.biometric.BiometricPrompt.PromptInfo.Builder#setDeviceCredentialAllowed(
+     * {@link mls.android.support.biometric.BiometricPrompt.PromptInfo.Builder#setDeviceCredentialAllowed(
      *boolean)}
      */
     static void generateCredentialBoundKey(String keyName, int validityDuration)

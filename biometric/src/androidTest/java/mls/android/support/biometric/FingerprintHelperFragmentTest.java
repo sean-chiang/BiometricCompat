@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -26,10 +26,9 @@ import static org.mockito.Mockito.when;
 import android.os.Handler;
 import android.os.Message;
 
-import androidx.annotation.NonNull;
-import androidx.test.annotation.UiThreadTest;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.LargeTest;
+import android.support.annotation.NonNull;
+import android.support.test.filters.LargeTest;
+import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -56,7 +55,7 @@ public class FingerprintHelperFragmentTest {
     };
 
     /**
-     * A version of {@link androidx.biometric.FingerprintHelperFragment.MessageRouter} that doesn't
+     * A version of {@link FingerprintHelperFragment.MessageRouter} that doesn't
      * forward any messages to its associated {@link Handler}.
      */
     private static class NoOpMessageRouter extends FingerprintHelperFragment.MessageRouter {
@@ -81,7 +80,7 @@ public class FingerprintHelperFragmentTest {
     }
 
     /**
-     * A testable version of {@link androidx.biometric.FingerprintHelperFragment.MessageRouter} that
+     * A testable version of {@link FingerprintHelperFragment.MessageRouter} that
      * keeps track of message IDs as they're sent through to the associated {@link Handler}.
      */
     private static class TestableMessageRouter extends FingerprintHelperFragment.MessageRouter {
@@ -142,7 +141,6 @@ public class FingerprintHelperFragmentTest {
     }
 
     @Test
-    @UiThreadTest
     public void testOnAuthenticationSucceeded_TriggersCallbackWithNullCrypto_WhenGivenNullResult() {
         final FingerprintHelperFragment helperFragment = FingerprintHelperFragment.newInstance();
         helperFragment.setCallback(EXECUTOR, mAuthenticationCallback);
@@ -156,7 +154,6 @@ public class FingerprintHelperFragmentTest {
     }
 
     @Test
-    @UiThreadTest
     public void testOnAuthenticationError_DoesShowErrorAndDismissDialog_WhenHardwareUnavailable() {
         final FingerprintHelperFragment helperFragment = FingerprintHelperFragment.newInstance();
         final TestableMessageRouter messageRouter = new TestableMessageRouter(mHandler);

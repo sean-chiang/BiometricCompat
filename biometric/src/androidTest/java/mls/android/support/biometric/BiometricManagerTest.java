@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
-import static androidx.biometric.BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED;
-import static androidx.biometric.BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE;
-import static androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS;
+import static mls.android.support.biometric.BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED;
+import static mls.android.support.biometric.BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE;
+import static mls.android.support.biometric.BiometricManager.BIOMETRIC_SUCCESS;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -26,10 +26,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import android.os.Build;
-
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.MediumTest;
-import androidx.test.filters.SdkSuppress;
+import android.support.test.filters.MediumTest;
+import android.support.test.filters.SdkSuppress;
+import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

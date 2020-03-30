@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.biometric;
+package mls.demo.android.support.biometric;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -27,12 +27,13 @@ import android.widget.CheckBox;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.biometric.BiometricManager;
-import androidx.biometric.BiometricPrompt;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.util.concurrent.Executor;
+
+import mls.android.support.biometric.BiometricManager;
+import mls.android.support.biometric.BiometricPrompt;
 
 /**
  * Controller for the biometric prompt demo app. Coordinates the logic of initializing buttons,

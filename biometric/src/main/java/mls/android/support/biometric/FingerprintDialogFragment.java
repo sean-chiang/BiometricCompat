@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -27,6 +28,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -35,14 +38,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.DialogFragment;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.annotation.RestrictTo;
+import android.support.annotation.VisibleForTesting;
 
 /**
  * This class implements a custom AlertDialog that prompts the user for fingerprint authentication.
@@ -61,7 +61,7 @@ public class FingerprintDialogFragment extends DialogFragment {
 
     /**
      * Error/help message will show for this amount of time, unless
-     * {@link Utils#shouldAlwaysHideFingerprintDialogInstantly(String)} is true.
+     * {@link Utils#shouldHideFingerprintDialog(Context, String)} is true.
      *
      * <p>For error messages, the dialog will also be dismissed after this amount of time. Error
      * messages will be propagated back to the application via AuthenticationCallback
@@ -327,7 +327,7 @@ public class FingerprintDialogFragment extends DialogFragment {
 
     /**
      * @return The effective millisecond delay to wait before hiding the dialog, while respecting
-     * the result of {@link Utils#shouldAlwaysHideFingerprintDialogInstantly(String)}.
+     * the result of {@link Utils#shouldHideFingerprintDialog(Context, String)}.
      */
     static int getHideDialogDelay(Context context) {
         return context != null && Utils.shouldHideFingerprintDialog(

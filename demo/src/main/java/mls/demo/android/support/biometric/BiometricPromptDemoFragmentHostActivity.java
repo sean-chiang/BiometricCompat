@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.android.biometric;
+package mls.demo.android.support.biometric;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 
 /** Simple wrapper activity that holds the fragment host for the biometric prompt demo. */
 public class BiometricPromptDemoFragmentHostActivity extends FragmentActivity {

@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
 import static com.google.common.truth.Truth.assertThat;
 
 import android.content.DialogInterface;
 import android.os.Build;
 
-import androidx.annotation.NonNull;
-import androidx.biometric.DeviceCredentialHandlerBridge.DeviceCredentialResult;
-import androidx.test.annotation.UiThreadTest;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.SdkSuppress;
-import androidx.test.filters.SmallTest;
+import android.support.annotation.NonNull;
+import android.support.test.filters.SdkSuppress;
+import android.support.test.filters.SmallTest;
+import android.support.test.runner.AndroidJUnit4;
+
+import mls.android.support.biometric.DeviceCredentialHandlerBridge.DeviceCredentialResult;
 
 import org.junit.After;
 import org.junit.Test;
@@ -88,7 +88,6 @@ public class DeviceCredentialHandlerBridgeTest {
     }
 
     @Test
-    @UiThreadTest
     @SdkSuppress(minSdkVersion = Build.VERSION_CODES.P)
     public void testBiometricFragment_CanSetAndGet() {
         final DeviceCredentialHandlerBridge bridge = DeviceCredentialHandlerBridge.getInstance();
@@ -100,7 +99,6 @@ public class DeviceCredentialHandlerBridgeTest {
     }
 
     @Test
-    @UiThreadTest
     public void testFingerprintFragments_CanSetAndGet() {
         final DeviceCredentialHandlerBridge bridge = DeviceCredentialHandlerBridge.getInstance();
         assertThat(bridge.getFingerprintDialogFragment()).isNull();
@@ -127,7 +125,6 @@ public class DeviceCredentialHandlerBridgeTest {
     }
 
     @Test
-    @UiThreadTest
     @SdkSuppress(minSdkVersion = Build.VERSION_CODES.P)
     public void testCallbacks_ArePassedToBiometricFragment_WhenSetAfter() {
         final DeviceCredentialHandlerBridge bridge = DeviceCredentialHandlerBridge.getInstance();
@@ -144,7 +141,6 @@ public class DeviceCredentialHandlerBridgeTest {
     }
 
     @Test
-    @UiThreadTest
     public void testCallbacks_ArePassedToFingerprintFragments_WhenSetAfter() {
         final DeviceCredentialHandlerBridge bridge = DeviceCredentialHandlerBridge.getInstance();
         final FingerprintDialogFragment dialogFragment = FingerprintDialogFragment.newInstance();
@@ -185,7 +181,6 @@ public class DeviceCredentialHandlerBridgeTest {
     }
 
     @Test
-    @UiThreadTest
     @SdkSuppress(minSdkVersion = Build.VERSION_CODES.P)
     public void testReset_ClearsBiometricFragment_WhenNotIgnoringReset() {
         final DeviceCredentialHandlerBridge bridge = DeviceCredentialHandlerBridge.getInstance();
@@ -195,7 +190,6 @@ public class DeviceCredentialHandlerBridgeTest {
     }
 
     @Test
-    @UiThreadTest
     public void testReset_ClearsState_WhenNotIgnoringReset() {
         final DeviceCredentialHandlerBridge bridge = DeviceCredentialHandlerBridge.getInstance();
         bridge.setClientThemeResId(1);

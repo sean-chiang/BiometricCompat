@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package androidx.core.hardware.fingerprint;
+package mls.android.support.biometric;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -22,11 +22,11 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Handler;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RequiresPermission;
-import androidx.core.os.CancellationSignal;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.annotation.RequiresPermission;
+import android.support.v4.os.CancellationSignal;
 
 import java.security.Signature;
 
@@ -36,7 +36,7 @@ import javax.crypto.Mac;
 /**
  * A class that coordinates access to the fingerprint hardware.
  * <p>
- * On platforms before {@link android.os.Build.VERSION_CODES#M}, this class behaves as there would
+ * On platforms before {@link Build.VERSION_CODES#M}, this class behaves as there would
  * be no fingerprint hardware available.
  *
  * @deprecated Use {@code androidx.biometrics.BiometricPrompt} instead.
@@ -102,8 +102,8 @@ public class FingerprintManagerCompat {
      */
     @RequiresPermission(android.Manifest.permission.USE_FINGERPRINT)
     public void authenticate(@Nullable CryptoObject crypto, int flags,
-            @Nullable CancellationSignal cancel, @NonNull AuthenticationCallback callback,
-            @Nullable Handler handler) {
+                             @Nullable CancellationSignal cancel, @NonNull AuthenticationCallback callback,
+                             @Nullable Handler handler) {
         if (Build.VERSION.SDK_INT >= 23) {
             final FingerprintManager fp = getFingerprintManagerOrNull(mContext);
             if (fp != null) {

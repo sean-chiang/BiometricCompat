@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
 import android.content.Context;
 import android.os.Build;
 
-import androidx.annotation.IntDef;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.VisibleForTesting;
+import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.annotation.VisibleForTesting;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -31,13 +31,13 @@ import java.lang.annotation.RetentionPolicy;
  * A class that contains biometric utilities. For authentication, see {@link BiometricPrompt}.
  * On devices running Q and above, this will query the framework's version of
  * {@link android.hardware.biometrics.BiometricManager}. On devices P and older, this will query
- * {@link androidx.core.hardware.fingerprint.FingerprintManagerCompat}.
+ * {@link FingerprintManagerCompat}.
  */
 public class BiometricManager {
 
     // Only guaranteed to be non-null on SDK < 29
     @SuppressWarnings("deprecation")
-    private final androidx.core.hardware.fingerprint.FingerprintManagerCompat mFingerprintManager;
+    private final FingerprintManagerCompat mFingerprintManager;
 
     // Only guaranteed to be non-null on SDK >= 29 (Q)
     private final android.hardware.biometrics.BiometricManager mBiometricManager;
@@ -99,7 +99,7 @@ public class BiometricManager {
         } else {
             mBiometricManager = null;
             mFingerprintManager =
-                    androidx.core.hardware.fingerprint.FingerprintManagerCompat.from(context);
+                    FingerprintManagerCompat.from(context);
         }
     }
 

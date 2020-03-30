@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package androidx.biometric;
+package mls.android.support.biometric;
 
-import androidx.annotation.RestrictTo;
+import android.support.annotation.RestrictTo;
 
 /**
  * Interface containing all of the biometric modality agnostic constants. These constants must
